@@ -414,7 +414,7 @@ const timeSec = document.querySelector(".timer-sec")
 
 
 let counter;
-let timeGiven = 5
+let timeGiven = 10
 const initialState = {
     score: 0,
     wrongAnswer: 0,
@@ -453,6 +453,7 @@ restartGame.addEventListener("click",()=> {
     quizContainer.classList.add("quiz-container-show")
     resultContainer.classList.remove("result-container-show")
     initialStage()
+    questionTracker()
     displayQuestions()
     clearInterval(counter)
     setTimer(timeGiven)
@@ -488,8 +489,7 @@ function questionTracker(){
 function initialStage(){
     initialState.score = 0
     initialState.wrongAnswer = 0
-    // initialState.totalQuestion = 5
-    initialState.questionLoaded = 0
+    initialState.questionLoaded = -1
 
 }
 
@@ -561,7 +561,7 @@ function generateRandomNumber(index) {
 
                         optionList.children[i].insertAdjacentHTML("beforeend", correctTag)
                         optionList.children[i].style.backgroundColor = "rgb(200, 245, 222)"
-                        console.log("yesss");
+                       
                             }
                         }
                  }
@@ -580,8 +580,7 @@ function generateRandomNumber(index) {
         }
         
         optionSelected()
-
-        console.log(questions[x].answer);     
+    
     }
 
 
