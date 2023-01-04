@@ -584,7 +584,7 @@ function generateRandomNumber(index) {
         console.log(questions[x].answer);     
     }
 
-    
+
 displayQuestions()
 
 
@@ -592,11 +592,11 @@ displayQuestions()
 function displayResult(){
     resultContainer.classList.add("result-container-show")
     quizContainer.classList.remove("quiz-container-show")
-    if(endScore < 3){
-    endScore.innerHTML = `<span>sorry you got 🙁 <p>${initialState.score}</p> out of <p>5</p></span>`
+    if(initialState.score < 3){
+    endScore.innerHTML = `<span>sorry you got only 🙁 <p>${initialState.score}</p> out of <p>5</p></span>`
    }
    else{
-    endScore.innerHTML = `<span>yay!! you got only😄 <p>${initialState.score}</p> out of <p>5</p></span>`
+    endScore.innerHTML = `<span>yay!! you got 😄 <p>${initialState.score}</p> out of <p>5</p></span>`
    }
 }
 
@@ -618,36 +618,43 @@ function setTimer(time){
 
     if(time <= 0){
         clearInterval(counter)
-
+        timeSec.classList.add("time-out")
         timeSec.textContent = "time out"
+   
         nextQuestionBtn.disabled = false
 
-        // timeSec.style.color = "red"
-        //    //targeting each option 
+        timeSec.style.color = "red"
+
+
+        //targeting each option 
     
            
-        //    let correctTag = `<div class="icon"><i class='bx bx-check' ></i></div>`
+           let correctTag = `<div class="icon"><i class='bx bx-check' ></i></div>`
 
-        //    for(i=0; i < optionList.children.length; i++){
+        for(i=0; i < optionList.children.length; i++){
           
 
         //   console.log(x);
 
-        //     if(optionList.children[i].innerHTML == questions[x].answer ){
+            // if(optionList.children[i].innerHTML == questions[x].answer ){
                 
-        //      optionList.children[i].insertAdjacentHTML("beforeend", correctTag)
-        //      optionList.children[i].style.backgroundColor = "rgb(200, 245, 222)"
-        //      console.log("yesss");
-        //          }
-        //      }
+            //  optionList.children[i].insertAdjacentHTML("beforeend", correctTag)
+            //  optionList.children[i].style.backgroundColor = "rgb(200, 245, 222)"
+            //  console.log("yesss");
+            //      }
+             }
 
          for(i=0; i < optionList.children.length; i++){
 
          optionList.children[i].classList.add("disabled")
-       
+       }
 
 
-    }
+    
+      }
+      else{
+        timeSec.style.color = "white"
+        timeSec.classList.remove("time-out")
       }
        
 
